@@ -14,7 +14,7 @@ const App = (): React.ReactElement => {
     <div className="App">
       <>{isTrue.toString()}</>
       <>
-        <button onClick={() => dispatch(updateIsTrue(!isTrue))}>click</button>
+        <button onClick={() => dispatch(updateIsTrue())}>hello</button>
       </>
     </div>
   )

@@ -15,8 +15,8 @@ export const applicationSlice = createSlice({
 
   initialState,
   reducers: {
-    updateIsTrue: (state, action: PayloadAction<boolean>) => {
-      state.isTrue = action.payload
+    updateIsTrue: (state) => {
+      state.isTrue = !state.isTrue
     },
   },
 })
