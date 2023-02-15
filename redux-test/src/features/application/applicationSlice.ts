@@ -11,23 +11,18 @@ const initialState: ApplicationState = {
 }
 
 export const applicationSlice = createSlice({
-  name: 'updateSwitch',
+  name: 'application',
 
   initialState,
   reducers: {
     updateIsTrue: (state, action: PayloadAction<boolean>) => {
-      // shouldn't state be given type boolean?
-      state.value = action.payload
-    },
-    updateIsFalse: (state, action: PayloadAction<boolean>) => {
-      // shouldn't state be given type boolean?
-      state.value = action.payload
+      state.isTrue = action.payload
     },
   },
 })
 
-export const { updateIsTrue, updateIsFalse } = applicationSlice.actions
+export const { updateIsTrue } = applicationSlice.actions
+
+export const selectIsTrue = (state: RootState) => state.application.isTrue
 
 export default applicationSlice.reducer
-
-// dont understand RootState

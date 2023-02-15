@@ -1,10 +1,23 @@
-import { useSelector } from 'react-redux'
 import './App.css'
 
+import { useAppSelector, useAppDispatch } from '../src/app/hooks'
+import {
+  updateIsTrue,
+  selectIsTrue,
+} from './features/application/applicationSlice'
+
 const App = (): React.ReactElement => {
-  const { isTrue } = useSelector((state) => state.switch)
-  console.log(isTrue)
-  return <div className="App">{isTrue.toString()}</div>
+  const isTrue = useAppSelector(selectIsTrue)
+  const dispatch = useAppDispatch()
+
+  return (
+    <div className="App">
+      <>{isTrue.toString()}</>
+      <>
+        <button onClick={() => dispatch(updateIsTrue(!isTrue))}>click</button>
+      </>
+    </div>
+  )
 }
 
 export default App
